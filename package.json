@@ -1,0 +1,27 @@
+{
+  "name": "birth-cert-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.17.0",
+    "express": "^5.2.1",
+    "multer": "^2.2.0",
+    "pdf-parse": "^2.4.5",
+    "pdfkit": "^0.19.1",
+    "pg": "^8.22.0",
+    "uuid": "^14.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
