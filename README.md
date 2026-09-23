@@ -94,7 +94,25 @@ CREATE DATABASE birth_cert_db OWNER birth_cert_user;
 
 The backend automatically creates the application tables when it starts by executing `backend/schema.sql`.
 
-### 3. Configure the backend
+### 3. Deploy the smart contract and update the ABI
+
+Deploy `backend/contracts/BirthCertificate.sol` to the Sepolia testnet using your chosen Solidity toolchain, such as Remix, Hardhat, or another compatible deployment tool. Record the deployed contract address and export or copy the ABI generated from the same compilation and deployment.
+
+Replace the contents of both existing ABI files with that generated ABI:
+
+```text
+backend/config/contractABI.json
+frontend/src/config/contractABI.json
+```
+
+The two files must contain the ABI for the same deployed contract. The ABI must include the functions used by the application, including `issueCertificate`, `payVerificationFee`, and `getCertificate`. Do not use an ABI from a different contract version.
+
+Use the deployed address in both the backend and frontend environment files in the next steps:
+
+- `CONTRACT_ADDRESS` in `backend/.env`
+- `VITE_CONTRACT_ADDRESS` in `frontend/.env`
+
+### 4. Configure the backend
 
 ```bash
 cd backend
@@ -135,7 +153,7 @@ Expected response:
 {"status":"ok"}
 ```
 
-### 4. Configure and start the frontend
+### 5. Configure and start the frontend
 
 Open a second terminal at the repository root:
 
